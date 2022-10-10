@@ -1,0 +1,45 @@
+Source: libfuture-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>
+Section: perl
+Testsuite: autopkgtest-pkg-perl
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               libmodule-build-perl
+Build-Depends-Indep: libfuture-asyncawait-perl <!nocheck>,
+                     libtest-fatal-perl <!nocheck>,
+                     libtest-identity-perl <!nocheck>,
+                     libtest-pod-perl <!nocheck>,
+                     libtest-refcount-perl <!nocheck>,
+                     perl
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libfuture-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libfuture-perl.git
+Homepage: https://metacpan.org/release/Future
+Rules-Requires-Root: no
+
+Package: libfuture-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends}
+Multi-Arch: foreign
+Description: module for operations awaiting completion
+ A Future object represents an operation that is currently in progress, or
+ has recently completed. It can be used in a variety of ways to manage the
+ flow of control, and data, through an asynchronous program.
+ .
+ Some futures represent a single operation and are explicitly marked as ready
+ by calling the done or fail methods. These are called "leaf" futures here,
+ and are returned by the new constructor.
+ .
+ Other futures represent a collection sub-tasks, and are implicitly marked as
+ ready depending on the readiness of their component futures as required.
+ These are called "dependent" futures here, and are returned by the various
+ wait_* and need_* constructors.
+ .
+ It is intended that library functions that perform asynchronous operations
+ would use Future objects to represent outstanding operations, and allow their
+ calling programs to control or wait for these operations to complete. The
+ implementation and the user of such an interface would typically make use of
+ different methods on the class. The methods below are documented in two
+ sections; those of interest to each side of the interface.
