@@ -4,11 +4,11 @@ Source: https://metacpan.org/release/Future
 Upstream-Contact: Paul Evans <leonerd@leonerd.org.uk>
 
 Files: *
-Copyright: 2011-2021, Paul Evans <leonerd@leonerd.org.uk>
+Copyright: 2011-2024, Paul Evans <leonerd@leonerd.org.uk>
 License: Artistic or GPL-1+
 
 Files: debian/*
-Copyright: 2012-2021, gregor herrmann <gregoa@debian.org>
+Copyright: 2012-2024, gregor herrmann <gregoa@debian.org>
  2013, Nuno Carvalho <smash@cpan.org>
  2013, Onur Aslan <onur@onur.im>
  2014, 2016, Salvatore Bonaccorso <carnil@debian.org>

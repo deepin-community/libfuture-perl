@@ -1,11 +1,9 @@
 #!/usr/bin/perl
 
-use v5.10;
-use strict;
+use v5.14;
 use warnings;
 
-use Test::More;
-use Test::Identity;
+use Test2::V0;
 
 use Future;
 use Future::Utils qw( fmap_void );
@@ -32,7 +30,7 @@ use Future::Utils qw( fmap_void );
    $subf[2]->done;
 
    ok( $future->is_ready, '$future now ready after subs done' );
-   is_deeply( [ $future->result ], [], '$future->result empty for fmap_void' );
+   is( [ $future->result ], [], '$future->result empty for fmap_void' );
 }
 
 # fmap_void from CODE
@@ -196,7 +194,7 @@ use Future::Utils qw( fmap_void );
       return Future->done;
    } foreach => [ 0 ], return => my $ret = Future->new;
 
-   identical( $future, $ret, 'repeat with return yields correct instance' );
+   ref_is( $future, $ret, 'repeat with return yields correct instance' );
 }
 
 done_testing;
