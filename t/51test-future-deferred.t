@@ -1,11 +1,9 @@
 #!/usr/bin/perl
 
-use v5.10;
-use strict;
+use v5.14;
 use warnings;
 
-use Test::More;
-use Test::Fatal;
+use Test2::V0;
 
 use Test::Future::Deferred;
 
@@ -22,7 +20,7 @@ use Test::Future::Deferred;
    my $f = Test::Future::Deferred->fail_later( "oops\n" );
 
    ok( !$f->is_failed, '$f not yet ready' );
-   is( exception { $f->get }, "oops\n", '$f->get throws exception anyway' );
+   is( dies { $f->get }, "oops\n", '$f->get throws exception anyway' );
 }
 
 # failure

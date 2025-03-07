@@ -7,12 +7,11 @@ Priority: optional
 Build-Depends: debhelper-compat (= 13),
                libmodule-build-perl
 Build-Depends-Indep: libfuture-asyncawait-perl <!nocheck>,
-                     libtest-fatal-perl <!nocheck>,
-                     libtest-identity-perl <!nocheck>,
-                     libtest-pod-perl <!nocheck>,
-                     libtest-refcount-perl <!nocheck>,
+                     libfuture-xs-perl <!nocheck>,
+                     libscalar-list-utils-perl <!nocheck>,
+                     libtest2-suite-perl (>= 0.000148) <!nocheck>,
                      perl
-Standards-Version: 4.5.1
+Standards-Version: 4.7.0
 Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libfuture-perl
 Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libfuture-perl.git
 Homepage: https://metacpan.org/release/Future
@@ -20,9 +19,11 @@ Rules-Requires-Root: no
 
 Package: libfuture-perl
 Architecture: all
-Depends: ${misc:Depends},
-         ${perl:Depends}
 Multi-Arch: foreign
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         libscalar-list-utils-perl
+Recommends: libfuture-xs-perl
 Description: module for operations awaiting completion
  A Future object represents an operation that is currently in progress, or
  has recently completed. It can be used in a variety of ways to manage the
